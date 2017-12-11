@@ -3,6 +3,7 @@
   vars:
     joy_install_dir: /home/vagrant/joy-install
     joy_build_dir: /home/vagrant/joy-build
+    home_bin: /home/vagrant/bin
 
   tasks:
   - file:
@@ -17,7 +18,7 @@
 
   # Create ~/bin if it doesn't already exist 
   - file:
-      path: /home/vagrant/bin
+      path: "{{ home_bin }}"
       state: directory
       mode: 0755
 
@@ -36,5 +37,5 @@
 
   - file:
       src: "{{ joy_build_dir }}/joy"
-      dest: /home/vagrant/bin/joy
+      dest: "{{ home_bin }}/joy"
       state: link
