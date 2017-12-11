@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  vars:
+    joy_install_dir: /home/vagrant/joy-install
+    joy_build_dir: /home/vagrant/joy-build
+
+  tasks:
+  - file:
+      path: "{{ joy_install_dir }}"
+      state: directory
+      mode: 0755
+
+  - file:
+      path: "{{ joy_build_dir }}"
+      state: directory
+      mode: 0755
+
+  # Create ~/bin if it doesn't already exist 
+  - file:
+      path: /home/vagrant/bin
+      state: directory
+      mode: 0755
+
+  - name: Download joy tar
+    get_url:
+      url: http://www.kevinalbrecht.com/code/joy-mirror/joy.tar.gz
+      dest: "{{ joy_install_dir }}"
+
+  - name: Expand joy tar
+    unarchive:
+      src: "{{ joy_install_dir }}/joy.tar.gz"
+      dest: "{{ joy_build_dir }}"
+
+  - make:
+      chdir: "{{ joy_build_dir }}"
+
+  - file:
+      src: "{{ joy_build_dir }}/joy"
+      dest: /home/vagrant/bin/joy
+      state: link
