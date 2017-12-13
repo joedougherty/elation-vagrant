@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   vars:
     joy_install_dir: /home/vagrant/joy-install
     joy_build_dir: /home/vagrant/joy-build
