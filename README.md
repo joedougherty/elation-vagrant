@@ -5,9 +5,9 @@ A VM to play around with the 32-bit [Joy programming language](http://www.kevina
 
 ### Requirements ###
 
-* [Virtualbox] (https://www.virtualbox.org/wiki/Downloads) (>= v5.0)
-* [Vagrant] (https://www.vagrantup.com/)
-* [Ansible] (https://docs.ansible.com/ansible/latest/intro_installation.html) (>= v2.0)
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) (>= v5.0)
+* [Vagrant](https://www.vagrantup.com/)
+* [Ansible](https://docs.ansible.com/ansible/latest/intro_installation.html) (>= v2.0)
 
 
 The included `install_joy.yml` playbook will fetch/download/symlink Joy.
