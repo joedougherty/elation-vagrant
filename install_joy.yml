@@ -31,6 +31,7 @@
     unarchive:
       src: "{{ joy_install_dir }}/joy.tar.gz"
       dest: "{{ joy_build_dir }}"
+      remote_src: yes
 
   - make:
       chdir: "{{ joy_build_dir }}"
